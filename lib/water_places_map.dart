@@ -50,7 +50,7 @@ class WaterPlacesMap extends StatelessWidget {
             children: [
               TileLayer(
                 urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                userAgentPackageName: 'com.example.i_fillup',
+                userAgentPackageName: 'com.example.oasis',
                 maxNativeZoom: 19,
                 tileProvider: tileProvider,
               ),

@@ -1,4 +1,4 @@
-package com.example.i_fillup
+package com.example.oasis
 
 import android.app.Activity
 import android.app.NotificationChannel
@@ -35,7 +35,7 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "i_fillup/google_places")
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "oasis/google_places")
             .setMethodCallHandler { call, result ->
                 if (call.method != "chooseAddress") {
                     result.notImplemented()

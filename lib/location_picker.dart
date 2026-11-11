@@ -123,7 +123,7 @@ class _LocationPickerState extends State<LocationPicker> {
             children: [
               TileLayer(
                 urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                userAgentPackageName: 'com.example.i_fillup',
+                userAgentPackageName: 'com.example.oasis',
                 tileProvider: widget.tileProvider,
               ),
               if (selected != null)

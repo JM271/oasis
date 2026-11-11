@@ -4,7 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'address_search.dart';
 import 'texts.dart';
 
-const googlePlacesChannel = MethodChannel('i_fillup/google_places');
+const googlePlacesChannel = MethodChannel('oasis/google_places');
 
 Future<AddressMatch?> chooseGoogleAddress(String query) async {
   final result = await googlePlacesChannel.invokeMapMethod<String, dynamic>(

@@ -14,13 +14,13 @@ flutter run                 # Android/iOS device or emulator
 flutter run -d chrome       # Web
 ```
 
-The Android application ID is `com.example.i_fillup`. A VS Code launch configuration is included.
+The Android application ID is `com.petehon.ifillup`. A VS Code launch configuration is included.
 
 ## Firebase setup
 
 The apps use Firebase project `i-fillup`, email/password Firebase Authentication, and Cloud Firestore. FlutterFire options are in `lib/firebase_options.dart`.
 
-The Android app `com.example.i_fillup` is registered in Firebase; its config is in `android/app/google-services.json`. The old `.taker` and `.giver` registrations are obsolete and can be deleted in the Firebase console.
+The Android app `com.petehon.ifillup` is registered in Firebase; its config is in `android/app/google-services.json`. The old `.taker` and `.giver` registrations are obsolete and can be deleted in the Firebase console.
 
 The default Firestore database still needs to be created in the Firebase project. Device logs on 2026-10-31 confirm that the default database does not exist. Enable the Cloud Firestore API if prompted, then create the default Firestore database. (It was created in the `eur3` multi-region.)
 
@@ -82,9 +82,9 @@ Routing uses the [OSRM public demo server](https://github.com/Project-OSRM/osrm-
 
 ## Google Places address picker (Android)
 
-Android now uses Google's native Places Autocomplete (New) picker through the `i_fillup/google_places` channel. It fetches the selected address and coordinates with the same session token. Cancelling keeps the existing address. Web/desktop retain the Photon picker.
+Android now uses Google's native Places Autocomplete (New) picker through the `oasis/google_places` channel. It fetches the selected address and coordinates with the same session token. Cancelling keeps the existing address. Web/desktop retain the Photon picker.
 
-Enable Places API (New) and billing in Google Cloud. Restrict the Android key to the package `com.example.i_fillup` and the certificate used to sign your build. Save it locally in `android/secrets.properties`:
+Enable Places API (New) and billing in Google Cloud. Restrict the Android key to the package `com.petehon.ifillup` and the certificate used to sign your build. Save it locally in `android/secrets.properties`:
 
 ```properties
 PLACES_API_KEY=YOUR_ANDROID_RESTRICTED_KEY

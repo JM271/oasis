@@ -21,7 +21,7 @@ val uploadKey = Properties().apply {
 }
 
 android {
-    namespace = "com.example.i_fillup"
+    namespace = "com.example.oasis"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
