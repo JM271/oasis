@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:i_fillup/opening_times.dart';
-import 'package:i_fillup/texts.dart';
+import 'package:oasis/opening_times.dart';
+import 'package:oasis/texts.dart';
 
 void main() {
   tearDown(() => tr = lookupAppLocalizations(const Locale('en')));

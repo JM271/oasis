@@ -1,10 +1,10 @@
-# i fillup — Take water & Offer water
+# Oasis — Take water & Offer water
 
-i fillup opens on a shared home page with **Take water** and **Offer water**. Both sections run inside the same app and use the same account and repository. **Home** returns to the chooser without discarding an unfinished offer.
+Oasis opens on a shared home page with **Take water** and **Offer water**. Both sections run inside the same app and use the same account and repository. **Home** returns to the chooser without discarding an unfinished offer.
 
 - **Take water** (`lib/take_water_home.dart`): discover refill places, filter and search, inspect details and send refill requests.
 - **Offer water** (`lib/offer_water_home.dart`): create water offers with an address, map pin, opening times and CHF price; manage your places and incoming requests.
-- `lib/main.dart` is the single entry point; `lib/fillup_home.dart` is the shared home page.
+- `lib/main.dart` is the single entry point; `lib/oasis_home.dart` is the shared home page.
 
 ## Run
 

@@ -4,7 +4,7 @@ import 'l10n/app_localizations.dart';
 
 export 'l10n/app_localizations.dart';
 
-/// The app's texts in the device language. FillupApp sets it from the
+/// The app's texts in the device language. OasisApp sets it from the
 /// locale; until then (and in tests) the texts are English.
 AppLocalizations tr = lookupAppLocalizations(const Locale('en'));
 

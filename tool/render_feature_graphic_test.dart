@@ -67,7 +67,7 @@ void main() {
       canvas.restore();
       paintText(
         canvas,
-        'i fillup',
+        'Oasis',
         const Offset(430, 110),
         const TextStyle(fontFamily: 'Rounded', fontSize: 104, color: Colors.white),
       );

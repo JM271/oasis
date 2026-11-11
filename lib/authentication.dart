@@ -309,7 +309,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const Center(child: WaterIcon(Icons.water_drop, size: 72)),
                     const SizedBox(height: 16),
                     Text(
-                      'i fillup',
+                      'Oasis',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.headlineLarge,
                     ),

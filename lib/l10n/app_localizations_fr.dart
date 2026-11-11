@@ -10,13 +10,13 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
-  String get appName => 'i fillup';
+  String get appName => 'Oasis';
 
   @override
   String get view => 'Voir';
 
   @override
-  String get welcome => 'Bienvenue sur i fillup';
+  String get welcome => 'Bienvenue sur Oasis';
 
   @override
   String get tagline => 'De l’eau fraîche. Des voyages partagés.';

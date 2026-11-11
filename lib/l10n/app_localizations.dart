@@ -103,7 +103,7 @@ abstract class AppLocalizations {
   /// No description provided for @appName.
   ///
   /// In en, this message translates to:
-  /// **'i fillup'**
+  /// **'Oasis'**
   String get appName;
 
   /// No description provided for @view.
@@ -115,7 +115,7 @@ abstract class AppLocalizations {
   /// No description provided for @welcome.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to i fillup'**
+  /// **'Welcome to Oasis'**
   String get welcome;
 
   /// No description provided for @tagline.

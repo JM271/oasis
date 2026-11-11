@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:i_fillup/address_search.dart';
-import 'package:i_fillup/route_planner.dart';
-import 'package:i_fillup/take_water_home.dart';
-import 'package:i_fillup/water_place.dart';
+import 'package:oasis/address_search.dart';
+import 'package:oasis/route_planner.dart';
+import 'package:oasis/take_water_home.dart';
+import 'package:oasis/water_place.dart';
 import 'package:latlong2/latlong.dart';
 
 const thun = LatLng(46.758, 7.628);

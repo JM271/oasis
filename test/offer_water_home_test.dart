@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:i_fillup/offer_water_form.dart';
-import 'package:i_fillup/offer_water_home.dart';
-import 'package:i_fillup/traveler_profile.dart';
-import 'package:i_fillup/water_place.dart';
-import 'package:i_fillup/water_repository.dart';
+import 'package:oasis/offer_water_form.dart';
+import 'package:oasis/offer_water_home.dart';
+import 'package:oasis/traveler_profile.dart';
+import 'package:oasis/water_place.dart';
+import 'package:oasis/water_repository.dart';
 
 WaterPlace legacyPlace(String id, String name) => WaterPlace(
   name,

@@ -7,9 +7,9 @@ import json, os, re
 # listed in INTS; plural texts use ICU syntax.
 S = {
  # Home
- 'appName': ('i fillup', 'i fillup', 'i fillup'),
+ 'appName': ('Oasis', 'Oasis', 'Oasis'),
  'view': ('View', 'Ansehen', 'Voir'),
- 'welcome': ('Welcome to i fillup', 'Willkommen bei i fillup', 'Bienvenue sur i fillup'),
+ 'welcome': ('Welcome to Oasis', 'Willkommen bei Oasis', 'Bienvenue sur Oasis'),
  'tagline': ('Fresh water. Shared journeys.', 'Frisches Wasser. Gemeinsam unterwegs.', 'De l’eau fraîche. Des voyages partagés.'),
  'takeWater': ('Take water', 'Wasser holen', 'Trouver de l’eau'),
  'takeWaterDescription': ('Find a refill place, check the details and arrange your next fill-up.', 'Finde eine Wasserstelle, prüfe die Details und vereinbare deinen nächsten Halt.', 'Trouvez un point d’eau, consultez les détails et organisez votre prochain plein.'),

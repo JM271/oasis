@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:i_fillup/take_water_home.dart';
-import 'package:i_fillup/water_place.dart';
+import 'package:oasis/take_water_home.dart';
+import 'package:oasis/water_place.dart';
 
 import 'traveler_profile_test.dart' show ProfileRepository;
 

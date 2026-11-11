@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:i_fillup/authentication.dart';
-import 'package:i_fillup/offer_water_home.dart';
-import 'package:i_fillup/take_water_home.dart';
+import 'package:oasis/authentication.dart';
+import 'package:oasis/offer_water_home.dart';
+import 'package:oasis/take_water_home.dart';
 
 class TestAuth extends Fake implements FirebaseAuth {
   String? signedInEmail;

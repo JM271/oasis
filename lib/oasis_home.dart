@@ -16,16 +16,16 @@ import 'water_repository.dart';
 import 'texts.dart';
 
 /// Keeps both sides mounted so switching home does not discard an offer draft.
-class FillupHome extends StatefulWidget {
-  const FillupHome({super.key, this.repository, this.auth});
+class OasisHome extends StatefulWidget {
+  const OasisHome({super.key, this.repository, this.auth});
   final WaterRepository? repository;
   final FirebaseAuth? auth;
 
   @override
-  State<FillupHome> createState() => _FillupHomeState();
+  State<OasisHome> createState() => _OasisHomeState();
 }
 
-class _FillupHomeState extends State<FillupHome> {
+class _OasisHomeState extends State<OasisHome> {
   int section = 0;
   final showRequests = ValueNotifier(0);
   final showMyRequests = ValueNotifier(0);
@@ -93,7 +93,7 @@ class _FillupHomeState extends State<FillupHome> {
                           children: [
                             const Expanded(
                               child: Text(
-                                'i fillup',
+                                'Oasis',
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w800,

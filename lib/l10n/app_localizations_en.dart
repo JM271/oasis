@@ -10,13 +10,13 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appName => 'i fillup';
+  String get appName => 'Oasis';
 
   @override
   String get view => 'View';
 
   @override
-  String get welcome => 'Welcome to i fillup';
+  String get welcome => 'Welcome to Oasis';
 
   @override
   String get tagline => 'Fresh water. Shared journeys.';

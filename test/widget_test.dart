@@ -1,25 +1,25 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:i_fillup/firebase_startup.dart';
+import 'package:oasis/firebase_startup.dart';
 import 'package:flutter/services.dart';
-import 'package:i_fillup/google_address_picker.dart';
-import 'package:i_fillup/address_search.dart';
+import 'package:oasis/google_address_picker.dart';
+import 'package:oasis/address_search.dart';
 
 import 'dart:async';
 
-import 'package:i_fillup/take_water_home.dart';
+import 'package:oasis/take_water_home.dart';
 
 import 'package:latlong2/latlong.dart';
-import 'package:i_fillup/location_picker.dart';
+import 'package:oasis/location_picker.dart';
 
 import 'dart:convert';
 
 import 'package:flutter_map/flutter_map.dart';
-import 'package:i_fillup/water_places_map.dart';
+import 'package:oasis/water_places_map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:i_fillup/main.dart';
-import 'package:i_fillup/offer_water_form.dart';
-import 'package:i_fillup/water_place.dart';
+import 'package:oasis/main.dart';
+import 'package:oasis/offer_water_form.dart';
+import 'package:oasis/water_place.dart';
 
 class TestTiles extends TileProvider {
   @override
@@ -46,7 +46,7 @@ void main() {
           onRetry: () async {
             retries++;
           },
-          preview: const FillupApp(),
+          preview: const OasisApp(),
         ),
       );
       expect(
@@ -222,7 +222,7 @@ void main() {
   testWidgets('Taker recovers a removed tab retained by hot reload', (
     tester,
   ) async {
-    await tester.pumpWidget(const FillupApp());
+    await tester.pumpWidget(const OasisApp());
     await tester.tap(find.text('Take water'));
     await tester.pumpAndSettle();
     final dynamic state = tester.state(find.byType(RefillHome));
@@ -367,7 +367,7 @@ void main() {
   testWidgets('Find places, filter and save a demo refill request', (
     tester,
   ) async {
-    await tester.pumpWidget(const FillupApp());
+    await tester.pumpWidget(const OasisApp());
     await tester.tap(find.text('Take water'));
     await tester.pumpAndSettle();
     expect(find.text('Fresh water.\nOpen roads.'), findsOneWidget);
@@ -409,7 +409,7 @@ void main() {
   testWidgets('Search shows empty state and offer tab explains host flow', (
     tester,
   ) async {
-    await tester.pumpWidget(const FillupApp());
+    await tester.pumpWidget(const OasisApp());
     await tester.tap(find.text('Take water'));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'unknown town');
@@ -432,23 +432,23 @@ void main() {
     expect(find.text('Offer water.\nEarn cash.'), findsOneWidget);
     expect(find.text('Find water'), findsNothing);
   });
-  testWidgets('i fillup home opens both sides and preserves an offer draft', (
+  testWidgets('Oasis home opens both sides and preserves an offer draft', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(const FillupApp());
+    await tester.pumpWidget(const OasisApp());
     await tester.pumpAndSettle();
-    expect(find.text('Welcome to i fillup'), findsOneWidget);
+    expect(find.text('Welcome to Oasis'), findsOneWidget);
     expect(tester.takeException(), isNull);
     await tester.tap(find.text('Take water'));
     await tester.pumpAndSettle();
     expect(find.text('Fresh water.\nOpen roads.'), findsOneWidget);
     await tester.tap(find.byTooltip('Home'));
     await tester.pumpAndSettle();
-    expect(find.text('Welcome to i fillup'), findsOneWidget);
+    expect(find.text('Welcome to Oasis'), findsOneWidget);
     await tester.tap(find.text('Offer water'));
     await tester.pumpAndSettle();
     expect(find.text('Your water place'), findsOneWidget);

@@ -5,7 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'app_style.dart';
 import 'authentication.dart';
-import 'fillup_home.dart';
+import 'oasis_home.dart';
 import 'firebase_options.dart';
 import 'firebase_startup.dart';
 import 'language.dart';
@@ -27,21 +27,21 @@ Future<void> main() async {
     final app = await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    runApp(FillupApp(auth: FirebaseAuth.instanceFor(app: app)));
+    runApp(OasisApp(auth: FirebaseAuth.instanceFor(app: app)));
   } on FirebaseException catch (error, stackTrace) {
     debugPrintStack(stackTrace: stackTrace);
     runApp(
       FirebaseStartupError(
         error: error,
         onRetry: main,
-        preview: const FillupApp(),
+        preview: const OasisApp(),
       ),
     );
   }
 }
 
-class FillupApp extends StatelessWidget {
-  const FillupApp({super.key, this.repository, this.auth});
+class OasisApp extends StatelessWidget {
+  const OasisApp({super.key, this.repository, this.auth});
   final FirebaseAuth? auth;
   final WaterRepository? repository;
 
@@ -52,7 +52,7 @@ class FillupApp extends StatelessWidget {
   );
 
   Widget _app(Locale? language) => MaterialApp(
-    title: 'i fillup',
+    title: 'Oasis',
     debugShowCheckedModeBanner: false,
     theme: waterTheme,
     localizationsDelegates: const [
@@ -69,11 +69,11 @@ class FillupApp extends StatelessWidget {
       return KeyedSubtree(key: ValueKey(tr.localeName), child: child!);
     },
     home: auth == null
-        ? FillupHome(repository: repository)
+        ? OasisHome(repository: repository)
         : AuthenticationGate(
             auth: auth!,
             builder: (repository) =>
-                FillupHome(repository: repository, auth: auth),
+                OasisHome(repository: repository, auth: auth),
           ),
   );
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:i_fillup/language.dart';
-import 'package:i_fillup/main.dart';
-import 'package:i_fillup/texts.dart';
-import 'package:i_fillup/water_place.dart';
+import 'package:oasis/language.dart';
+import 'package:oasis/main.dart';
+import 'package:oasis/texts.dart';
+import 'package:oasis/water_place.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -20,13 +20,13 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    await tester.pumpWidget(const FillupApp());
+    await tester.pumpWidget(const OasisApp());
     await tester.pumpAndSettle();
   }
 
   testWidgets('The app follows a German device', (tester) async {
     await openIn(tester, const Locale('de', 'CH'));
-    expect(find.text('Willkommen bei i fillup'), findsOneWidget);
+    expect(find.text('Willkommen bei Oasis'), findsOneWidget);
     await tester.tap(find.text('Wasser holen'));
     await tester.pumpAndSettle();
     expect(find.text('Wasserstelle entdecken'), findsOneWidget);
@@ -35,7 +35,7 @@ void main() {
 
   testWidgets('The app follows a French device', (tester) async {
     await openIn(tester, const Locale('fr', 'CH'));
-    expect(find.text('Bienvenue sur i fillup'), findsOneWidget);
+    expect(find.text('Bienvenue sur Oasis'), findsOneWidget);
     await tester.tap(find.text('Offrir de l’eau'));
     await tester.pumpAndSettle();
     expect(find.text('Mon lieu'), findsOneWidget);
@@ -43,7 +43,7 @@ void main() {
 
   testWidgets('Other languages fall back to English', (tester) async {
     await openIn(tester, const Locale('it'));
-    expect(find.text('Welcome to i fillup'), findsOneWidget);
+    expect(find.text('Welcome to Oasis'), findsOneWidget);
   });
 
   test('Stored prices and statuses are shown in the reader’s language', () {
@@ -63,7 +63,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Français'));
     await tester.pumpAndSettle();
-    expect(find.text('Bienvenue sur i fillup'), findsOneWidget);
+    expect(find.text('Bienvenue sur Oasis'), findsOneWidget);
     final preferences = await SharedPreferences.getInstance();
     expect(preferences.getString('language'), 'fr');
 
@@ -71,7 +71,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Langue de l\u2019appareil'));
     await tester.pumpAndSettle();
-    expect(find.text('Welcome to i fillup'), findsOneWidget);
+    expect(find.text('Welcome to Oasis'), findsOneWidget);
     expect(preferences.getString('language'), isNull);
 
     appLanguage.value = null;

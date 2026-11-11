@@ -44,7 +44,7 @@ android {
         buildConfigField("String", "PLACES_API_KEY", "\"${placesSecrets.getProperty("PLACES_API_KEY", "").trim()}\"")
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        resValue("string", "app_name", "i fillup")
+        resValue("string", "app_name", "Oasis")
     }
 
     buildFeatures {
