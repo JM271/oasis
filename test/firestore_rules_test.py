@@ -62,7 +62,7 @@ request_id = 'request-' + suffix
 place = dict(name='Test water', area='Zurich', host='Host', private=True,
              price='Free', description='Test', openingTimes='Always',
              latitude=47.3, longitude=8.5, photo='', vehicles=['campervan'],
-             services=['farmShop'], businessInfo='Eggs', website='https://hof.ch',
+             services=['farmShop', 'blackWater'], businessInfo='Eggs', website='https://hof.ch',
              ownerUid=host, isActive=True, createdAt='', updatedAt='')
 request('PATCH', '/waterPlaces/second-' + suffix, host, place, 403)
 request('PATCH', '/waterPlaces/' + place_id, host, place)
@@ -78,6 +78,9 @@ request('PATCH', '/waterPlaces/' + tap_host, tap_host, tap)
 tap_path = '/waterPlaces/' + tap_host + '?updateMask.fieldPaths=selfService&updateMask.fieldPaths=updatedAt'
 request('PATCH', tap_path, tap_host, dict(selfService=True, updatedAt=''))
 request('PATCH', tap_path, 'stranger', dict(selfService=True, updatedAt=''), 403)
+# Payment methods are optional and limited to TWINT and cash.
+request('PATCH', '/waterPlaces/' + tap_host, tap_host, dict(tap, payments=['twint', 'cash']))
+request('PATCH', '/waterPlaces/' + tap_host, tap_host, dict(tap, payments=['bitcoin']), 403)
 refill = dict(placeId=place_id, placeName='Test water', hostUid=host,
               requesterUid='traveler', liters=50, message='Hello', status='pending',
               requester=dict(name='Lea', vehicle='Van', phone='', about='', photo=''),
@@ -129,4 +132,4 @@ request('PATCH', '/waterPlaces/' + place_id, host, place, 403)
 request('DELETE', '/waterPlaces/' + place_id, 'stranger', expected=403)
 request('DELETE', '/waterPlaces/' + place_id, host)
 request('PATCH', '/waterPlaces/' + place_id, host, place, 403)
-print('44 Firestore rules checks passed (local emulator only).')
+print('46 Firestore rules checks passed (local emulator only).')

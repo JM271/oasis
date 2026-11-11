@@ -397,6 +397,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get serviceDump => 'Vidange des eaux usées';
 
   @override
+  String get serviceBlackWater => 'Vidange des eaux noires (WC)';
+
+  @override
   String get serviceElectricity => 'Électricité';
 
   @override
@@ -1149,6 +1152,24 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get priceError =>
       'Saisissez un prix de 0 ou plus, avec au plus 2 décimales';
+
+  @override
+  String get paymentMethods => 'Comment les voyageurs peuvent-ils payer ?';
+
+  @override
+  String get paymentTwint => 'TWINT';
+
+  @override
+  String get paymentCash => 'Espèces';
+
+  @override
+  String get payTwintOrCash => 'Paiement par TWINT ou en espèces';
+
+  @override
+  String get payTwint => 'Paiement par TWINT';
+
+  @override
+  String get payCash => 'Paiement en espèces';
 
   @override
   String get paymentNoteForm =>

@@ -297,6 +297,7 @@ class FirebaseWaterRepository implements WaterRepository {
     'photo': encodePhoto(place.photo),
     'vehicles': place.vehicles,
     'services': place.services,
+    'payments': place.payments,
     'businessInfo': place.businessInfo,
     'website': place.website,
     'hose': place.hose ?? false,

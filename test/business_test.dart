@@ -28,12 +28,14 @@ void main() {
       'latitude': 46.7,
       'longitude': 7.6,
       'ownerUid': 'me',
-      'services': ['farmShop', 'casino', 'fuel'],
+      'services': ['farmShop', 'casino', 'fuel', 'blackWater'],
+      'payments': ['cash', 'card'],
       'businessInfo': 'Eggs and cheese',
       'website': 'https://hof.ch',
     };
     final place = WaterPlace.fromFirestore('me', data);
-    expect(place.services, ['farmShop', 'fuel']);
+    expect(place.services, ['farmShop', 'fuel', 'blackWater']);
+    expect(place.payments, ['cash'], reason: 'unknown methods are dropped');
     expect(place.businessInfo, 'Eggs and cheese');
     expect(place.website, 'https://hof.ch');
     expect(place.promotesBusiness, isTrue);
@@ -69,6 +71,7 @@ void main() {
     expect(find.textContaining('eggs, cheese and bread'), findsOneWidget);
     expect(find.widgetWithText(Chip, 'Hose available'), findsOneWidget);
     expect(find.widgetWithText(Chip, 'Host lets you fill up'), findsOneWidget);
+    expect(find.text('Pay by TWINT or cash'), findsOneWidget);
   });
 
   testWidgets('Hosts can promote their business with an offer', (tester) async {
@@ -99,6 +102,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Campervan up to 6 m'));
     await tester.tap(find.text('Hose available'));
+    await tester.tap(find.text('TWINT'));
     await tester.tap(find.text('Farm shop'));
     await tester.tap(find.text('Fuel'));
     await tester.enterText(find.byType(TextFormField).at(3), 'Eggs, cheese');
@@ -115,6 +119,7 @@ void main() {
     await tester.tap(find.text('Save offer'));
     await tester.pumpAndSettle();
     expect(saved!.services, ['farmShop', 'fuel']);
+    expect(saved!.payments, ['twint']);
     expect(saved!.businessInfo, 'Eggs, cheese');
     expect(saved!.website, 'https://hof.ch');
     expect(saved!.hose, isTrue);

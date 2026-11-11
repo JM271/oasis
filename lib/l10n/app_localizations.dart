@@ -796,6 +796,12 @@ abstract class AppLocalizations {
   /// **'Waste water disposal'**
   String get serviceDump;
 
+  /// No description provided for @serviceBlackWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Black water disposal (toilet)'**
+  String get serviceBlackWater;
+
   /// No description provided for @serviceElectricity.
   ///
   /// In en, this message translates to:
@@ -1983,6 +1989,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter a price of 0 or more, with up to 2 decimals'**
   String get priceError;
+
+  /// No description provided for @paymentMethods.
+  ///
+  /// In en, this message translates to:
+  /// **'How can travelers pay?'**
+  String get paymentMethods;
+
+  /// No description provided for @paymentTwint.
+  ///
+  /// In en, this message translates to:
+  /// **'TWINT'**
+  String get paymentTwint;
+
+  /// No description provided for @paymentCash.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash'**
+  String get paymentCash;
+
+  /// No description provided for @payTwintOrCash.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay by TWINT or cash'**
+  String get payTwintOrCash;
+
+  /// No description provided for @payTwint.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay by TWINT'**
+  String get payTwint;
+
+  /// No description provided for @payCash.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay in cash'**
+  String get payCash;
 
   /// No description provided for @paymentNoteForm.
   ///

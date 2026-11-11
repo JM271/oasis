@@ -32,6 +32,7 @@ const placeServiceIcons = {
   'fuel': Icons.local_gas_station_outlined,
   'campsite': Icons.rv_hookup_outlined,
   'dump': Icons.water_damage_outlined,
+  'blackWater': Icons.wc_outlined,
   'electricity': Icons.electrical_services_outlined,
   'repairs': Icons.build_outlined,
 };
@@ -64,6 +65,7 @@ class WaterPlace {
     this.photo,
     this.vehicles = const [],
     this.services = const [],
+    this.payments = const [],
     this.businessInfo = '',
     this.website = '',
     this.hose,
@@ -84,6 +86,9 @@ class WaterPlace {
 
   /// Keys of [placeServices]: the host's business and other offers.
   final List<String> services;
+
+  /// Keys of [paymentMethods] the host accepts; empty when free or unsaid.
+  final List<String> payments;
 
   /// The host's pitch for their business, and its website.
   final String businessInfo, website;
@@ -141,6 +146,10 @@ class WaterPlace {
         for (final key in data['services'] as List? ?? const [])
           if (key is String && placeServices.containsKey(key)) key,
       ],
+      payments: [
+        for (final key in data['payments'] as List? ?? const [])
+          if (key is String && paymentMethods.containsKey(key)) key,
+      ],
       businessInfo: data['businessInfo'] as String? ?? '',
       website: data['website'] as String? ?? '',
       hose: data['hose'] as bool?,
@@ -163,6 +172,7 @@ const places = [
     vehicles: ['campervan'],
     hose: false,
     selfService: false,
+    payments: ['twint'],
   ),
   WaterPlace(
     'Riverside camper stop',
@@ -190,6 +200,7 @@ const places = [
     hose: true,
     selfService: false,
     services: ['farmShop', 'dump'],
+    payments: ['twint', 'cash'],
     businessInfo:
         'Our farm shop sells eggs, cheese and bread. Open Saturday mornings.',
   ),

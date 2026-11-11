@@ -238,7 +238,7 @@ class _GiverHomeState extends State<GiverHome> {
       title: Text(
         tr.offerWater,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontWeight: FontWeight.w800, color: ink),
+        style: TextStyle(color: ink),
       ),
       actions: [
         AccountButton(
@@ -540,7 +540,13 @@ class _PlaceCard extends StatelessWidget {
     final theme = Theme.of(context);
     final details = <(IconData, String)>[
       (Icons.schedule, describeOpeningTimes(place.openingTimes)),
-      (Icons.payments_outlined, displayPrice(place.price)),
+      (
+        Icons.payments_outlined,
+        [
+          displayPrice(place.price),
+          ?paymentSummary(place.payments),
+        ].join(' · '),
+      ),
       if (place.vehicles.isNotEmpty)
         (Icons.airport_shuttle_outlined, vehicleSummary(place.vehicles)),
       if (place.hose case final hose?)

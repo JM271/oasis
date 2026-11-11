@@ -218,6 +218,7 @@ class _RefillHomeState extends State<RefillHome> {
                 ],
               ),
               Text(tr.areaPrice(place.area, displayPrice(place.price))),
+              if (paymentSummary(place.payments) case final payBy?) Text(payBy),
               const SizedBox(height: 12),
               Text(
                 tr.openingTimesValue(describeOpeningTimes(place.openingTimes)),
@@ -921,7 +922,7 @@ class _RefillHomeState extends State<RefillHome> {
             title: Text(
               tr.takeWater,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.w800, color: ink),
+              style: TextStyle(color: ink),
             ),
             actions: [
               AccountButton(

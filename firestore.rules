@@ -51,15 +51,20 @@ service cloud.firestore {
         && place.vehicles.size() <= 4
         && place.vehicles.hasOnly(['campervan', 'motorhome', 'large', 'trailer'])
         && place.services is list
-        && place.services.size() <= 8
+        && place.services.size() <= 9
         && place.services.hasOnly(['farmShop', 'shop', 'food', 'fuel',
-                                   'campsite', 'dump', 'electricity', 'repairs'])
+                                   'campsite', 'dump', 'blackWater',
+                                   'electricity', 'repairs'])
         && place.businessInfo is string && place.businessInfo.size() <= 500
         && place.website is string && place.website.size() <= 200
         && (place.website == '' || place.website.matches('https?://.+'))
         // Optional, as places saved by older app versions lack them.
         && (!('hose' in place) || place.hose is bool)
-        && (!('selfService' in place) || place.selfService is bool);
+        && (!('selfService' in place) || place.selfService is bool)
+        && (!('payments' in place)
+            || (place.payments is list
+                && place.payments.size() <= 2
+                && place.payments.hasOnly(['twint', 'cash'])));
     }
 
     function activePlace(placeId) {
@@ -111,7 +116,7 @@ service cloud.firestore {
           'name', 'area', 'host', 'private', 'price', 'description',
           'openingTimes', 'latitude', 'longitude', 'photo', 'vehicles',
           'services', 'businessInfo', 'website', 'hose', 'selfService',
-          'ownerUid', 'isActive', 'createdAt', 'updatedAt'
+          'payments', 'ownerUid', 'isActive', 'createdAt', 'updatedAt'
         ])
         && request.resource.data.keys().hasAll([
           'name', 'area', 'host', 'private', 'price', 'description',
@@ -147,7 +152,8 @@ service cloud.firestore {
           .hasOnly(['name', 'area', 'host', 'private', 'price', 'description',
                     'openingTimes', 'latitude', 'longitude', 'photo',
                     'vehicles', 'services', 'businessInfo', 'website',
-                    'hose', 'selfService', 'isActive', 'updatedAt']);
+                    'hose', 'selfService', 'payments', 'isActive',
+                    'updatedAt']);
       allow delete: if signedIn() && resource.data.ownerUid == request.auth.uid;
     }
 

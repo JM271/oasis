@@ -389,6 +389,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get serviceDump => 'Waste water disposal';
 
   @override
+  String get serviceBlackWater => 'Black water disposal (toilet)';
+
+  @override
   String get serviceElectricity => 'Electricity';
 
   @override
@@ -1134,6 +1137,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get priceError => 'Enter a price of 0 or more, with up to 2 decimals';
+
+  @override
+  String get paymentMethods => 'How can travelers pay?';
+
+  @override
+  String get paymentTwint => 'TWINT';
+
+  @override
+  String get paymentCash => 'Cash';
+
+  @override
+  String get payTwintOrCash => 'Pay by TWINT or cash';
+
+  @override
+  String get payTwint => 'Pay by TWINT';
+
+  @override
+  String get payCash => 'Pay in cash';
 
   @override
   String get paymentNoteForm =>

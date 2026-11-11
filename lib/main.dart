@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'app_style.dart';
@@ -14,6 +16,14 @@ import 'water_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  LicenseRegistry.addLicense(() async* {
+    yield LicenseEntryWithLineBreaks([
+      appFontFamily,
+    ], await rootBundle.loadString('assets/fonts/licenses/Saira-OFL.txt'));
+    yield LicenseEntryWithLineBreaks([
+      appDisplayFontFamily,
+    ], await rootBundle.loadString('assets/fonts/licenses/Michroma-OFL.txt'));
+  });
   // Texts for anything shown before MaterialApp picks the locale.
   await loadAppLanguage();
   tr = lookupAppLocalizations(

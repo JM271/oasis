@@ -54,6 +54,7 @@ class _OfferWaterFormState extends State<OfferWaterForm> {
   final businessInfo = TextEditingController();
   final website = TextEditingController();
   final services = <String>{};
+  final payments = <String>{};
   LatLng? location;
   Uint8List? photo;
   final vehicles = <String>{};
@@ -85,6 +86,7 @@ class _OfferWaterFormState extends State<OfferWaterForm> {
     photo = place.photo;
     vehicles.addAll(place.vehicles);
     services.addAll(place.services);
+    payments.addAll(place.payments);
     hose = place.hose ?? false;
     selfService = place.selfService ?? false;
   }
@@ -290,6 +292,24 @@ class _OfferWaterFormState extends State<OfferWaterForm> {
                     ? tr.priceError
                     : null,
               ),
+              const SizedBox(height: 16),
+              Text(tr.paymentMethods),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (final MapEntry(:key, :value) in paymentMethods.entries)
+                    FilterChip(
+                      label: Text(value),
+                      selected: payments.contains(key),
+                      onSelected: (selected) => setState(
+                        () =>
+                            selected ? payments.add(key) : payments.remove(key),
+                      ),
+                    ),
+                ],
+              ),
               const SizedBox(height: 12),
               Text(tr.paymentNoteForm, style: const TextStyle(color: muted)),
             ],
@@ -459,6 +479,12 @@ class _OfferWaterFormState extends State<OfferWaterForm> {
                             for (final key in placeServices.keys)
                               if (services.contains(key)) key,
                           ],
+                          // Nothing to pay for a free refill.
+                          payments: [
+                            if (refillPriceLabel(price.text) != 'Free')
+                              for (final key in paymentMethods.keys)
+                                if (payments.contains(key)) key,
+                          ],
                           businessInfo: businessInfo.text.trim(),
                           website: website.text.trim(),
                           hose: hose,
@@ -493,6 +519,7 @@ class _OfferWaterFormState extends State<OfferWaterForm> {
                       photo = null;
                       vehicles.clear();
                       services.clear();
+                      payments.clear();
                       hose = false;
                       selfService = false;
                     });

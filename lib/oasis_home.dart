@@ -95,8 +95,8 @@ class _OasisHomeState extends State<OasisHome> {
                               child: Text(
                                 'Oasis',
                                 style: TextStyle(
+                                  fontFamily: appDisplayFontFamily,
                                   fontSize: 20,
-                                  fontWeight: FontWeight.w800,
                                 ),
                               ),
                             ),

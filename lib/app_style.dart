@@ -2,6 +2,13 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+/// Body/UI font: squared, slightly extended letterforms.
+const appFontFamily = 'Saira Semi Expanded';
+
+/// Display font for headings and the app name. Ships in a single weight
+/// (400), so never bold it.
+const appDisplayFontFamily = 'Michroma';
+
 // Water palette: from deep lake to shallow, sunlit water.
 const ink = Color(0xFF0E3446);
 const deep = Color(0xFF0B4F6C);
@@ -276,14 +283,15 @@ final waterTheme = () {
     useMaterial3: true,
     visualDensity: VisualDensity.compact,
     colorScheme: scheme,
+    fontFamily: appFontFamily,
     scaffoldBackgroundColor: mist,
     appBarTheme: const AppBarTheme(
       backgroundColor: mist,
       surfaceTintColor: Colors.transparent,
       foregroundColor: ink,
       titleTextStyle: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.w800,
+        fontFamily: appDisplayFontFamily,
+        fontSize: 17,
         color: ink,
       ),
     ),
@@ -297,7 +305,10 @@ final waterTheme = () {
       style: FilledButton.styleFrom(
         minimumSize: const Size(0, 48),
         shape: const StadiumBorder(),
-        textStyle: const TextStyle(fontWeight: FontWeight.w700),
+        textStyle: const TextStyle(
+          fontFamily: appFontFamily,
+          fontWeight: FontWeight.w700,
+        ),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
@@ -355,13 +366,24 @@ final waterTheme = () {
     dialogTheme: DialogThemeData(shape: rounded),
     textTheme: const TextTheme(
       headlineLarge: TextStyle(
-        fontSize: 28,
-        fontWeight: FontWeight.w800,
+        fontFamily: appDisplayFontFamily,
+        fontSize: 26,
+        fontWeight: FontWeight.w400,
         color: ink,
-        height: 1.12,
+        height: 1.2,
       ),
-      headlineSmall: TextStyle(fontWeight: FontWeight.w800, color: ink),
-      titleLarge: TextStyle(fontWeight: FontWeight.w700, color: ink),
+      headlineSmall: TextStyle(
+        fontFamily: appDisplayFontFamily,
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+        color: ink,
+      ),
+      titleLarge: TextStyle(
+        fontFamily: appDisplayFontFamily,
+        fontSize: 17,
+        fontWeight: FontWeight.w400,
+        color: ink,
+      ),
     ),
   );
 }();
